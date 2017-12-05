@@ -29,17 +29,40 @@ $\tilde{x}$ est le vecteur de pixels flouté\\
 $\lambda$ est un paramètre positif qui dépend du niveau de bruit\\
 
 \section{Étude de la convexité du problème}
+\noindent
 Pour qu'un problème soit convexe, il faut que
 \begin{itemize}
 \item Son domaine $ D $ soit convexe,
-\item $\nabla^2f(x) \geqslant 0, \forall x \in D$
+\item $\forall x,y \in D,\ \forall \lambda \in \left[0;1\right],\ f(\lambda x + (1 - \lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)$
 \end{itemize}
-
+\noindent
+\linebreak
 Le domaine est décrit par \( D = \left\{ x\ |\ c(x) \geq 0 \right\} \) et est convexe si $c(x)$ est concave.\\
-Ici : 
+Ici : \( D = \left\{ x\ |\ 0 \leq x \leq 1 \right\}\)\\
+On a donc deux inégalités $x \geq 0$ et $1 - x \geq 0$. Ces deux fonctions étant linéaires, elles sont à la fois concaves et convexes, donc ces deux \og sous-domaines\fg\ sont convexes.\\
+Puisque l'intersection de deux ensembles convexes est un ensemble convexe, l'ensemble $D$ est également convexe.\\
+
+\noindent
+La norme 2 est une fonction convexe.\\
+
+\noindent
+\textbf{Preuve}\\
+En utilisant les propriétés de la norme euclidienne :\\
+$\begin{array}{rcl}
+f(\lambda x + (1-\lambda)y) & = & ||\ \lambda x + (1-\lambda)y\ ||\\
+ & \leq & \lambda\ ||x|| + (1-\lambda)\ ||y||\\
+ & = & \lambda f(x) + (1-\lambda)f(y)\\
+\end{array}$
+
+\noindent
+\newline
+On a donc bien une fonction convexe, et on peut conclure que le problème est convexe.\\
 
 
 \section{Le problème admet-il un minimum global ?}
+Le domaine du problème est compact (fermé et borné). De plus, la fonction est convexe sur ce domaine. On aura donc soit un ou plusieurs minima locaux à l'intérieur du domaine, soit un minimum local sur l'une de ses bornes.\\
+Le problème étant convexe, tout minimum local est global.\\
+On conclut ainsi que le problème admet un minimum global.\\
 
 \section{Conditions d'optimalité}
 
