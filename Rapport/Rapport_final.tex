@@ -11,7 +11,7 @@
 \umonsAuthor{Sabrine \textsc{Riahi}\\Aymerick \textsc{Soyez}}
 \usepackage[utf8]{inputenc}
 \umonsTitle{Optimisation Non Linéaire}
-\umonsSubtitle {\\ \textbf{Récupération d’une image floutée (deblurring)}\\ \\ \textit{Première partie}: Description du problème \\ \\ \textit{Deuxième partie}: Réponses aux questions }
+\umonsSubtitle {\\ \textbf{Récupération d’une image floutée (deblurring)}}
 \umonsSupervisor {Sous la direction de Monsieur Nicolas \textsc{Gillis} et Arnaud \textsc{Vandaele}}
 \umonsDate {Décembre 2017}
 \umonsDocumentType {Projet d'Optimisation}
@@ -20,4 +20,36 @@
 \umonsCoverPage
 \tableofcontents
 \clearpage
+\section{Introduction}
+Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. L'objectif de ce projet est donc la résolution du problème suivant :\\
+\[\underset{0 \leq x \leq 1}{\mathrm{min}} ||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2\]
+où :\\
+$A$ est la matrice de floutage\\
+$\tilde{x}$ est le vecteur de pixels flouté\\
+$\lambda$ est un paramètre positif qui dépend du niveau de bruit\\
+
+\section{Étude de la convexité du problème}
+Pour qu'un problème soit convexe, il faut que
+\begin{itemize}
+\item Son domaine $ D $ soit convexe,
+\item $\nabla^2f(x) \geqslant 0, \forall x \in D$
+\end{itemize}
+
+Le domaine est décrit par \( D = \left\{ x\ |\ c(x) \geq 0 \right\} \) et est convexe si $c(x)$ est concave.\\
+Ici : 
+
+
+\section{Le problème admet-il un minimum global ?}
+
+\section{Conditions d'optimalité}
+
+\section{Méthode de descente de coordonnées}
+
+\section{Méthode du gradient}
+
+\section{Comparaison des méthodes}
+
+\section{Étude de la sensibilité de la solution}
+
+
 \end{document}

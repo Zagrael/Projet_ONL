@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.22)  22 NOV 2017 17:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.22)  5 DEC 2017 22:56
 entering extended mode
 **./Rapport_final.tex
 (Rapport_final.tex
@@ -800,18 +800,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 21.
-LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 21.
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 21--21
-
- []
-
 <umonsCharte/FPMS-Logo.jpg, id=2, 474.27188pt x 166.40167pt>
 File: umonsCharte/FPMS-Logo.jpg Graphic file (type jpg)
 <use umonsCharte/FPMS-Logo.jpg>
@@ -833,7 +821,7 @@ Package pdftex.def Info: umonsCharte/FPMS-Photo.jpg  used on input line 21. on
 input line 21.
 Package pdftex.def Info: Requested size: 213.39412pt x 361.35463pt on input lin
 e 21.
-[1{C:/Users/Aymerick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+ [1{C:/Users/Aymerick/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
  <./umonsCharte/UMONS-Logo.jpg> <./umonsCharte/FPMS-Logo.jpg> <./umonsCharte/AU
 WB-Logo.jpg> <./umonsCharte/FPMS-Photo.jpg>] (Rapport_final.toc)
@@ -843,6 +831,18 @@ WB-Logo.jpg> <./umonsCharte/FPMS-Photo.jpg>] (Rapport_final.toc)
  [1
 
 
+]
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--30
+
+ []
+
+[2
+
 ] (Rapport_final.aux)
 
 LaTeX Font Warning: Size substitutions with differences
@@ -850,23 +850,32 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 5363 strings out of 493312
- 76858 string characters out of 3128521
- 148088 words of memory out of 3000000
- 8779 multiletter control sequences out of 15000+200000
- 36568 words of font info for 63 fonts, out of 3000000 for 9000
+ 5366 strings out of 493312
+ 76905 string characters out of 3128521
+ 148989 words of memory out of 3000000
+ 8783 multiletter control sequences out of 15000+200000
+ 33943 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,30p,282b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,5n,30p,290b,423s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Aymerick\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi6
-00\ecrm1200.pk> <C:\Users\Aymerick\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
-appen\ec\dpi600\ecbx2488.pk>{C:/Users/Aymerick/AppData/Local/Programs/MiKTeX 2.
-9/fonts/enc/dvips/base/8r.enc}<C:/Users/Aymerick/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Aymerick/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/Aymerick/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Rapport_final.pdf (2 pages, 734646 bytes).
+00\ecbx1728.pk> <C:\Users\Aymerick\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jkn
+appen\ec\dpi600\ecrm1200.pk> <C:\Users\Aymerick\AppData\Local\MiKTeX\2.9\fonts\
+pk\ljfour\jknappen\ec\dpi600\ecbx2488.pk>{C:/Users/Aymerick/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/Aymerick/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Aymerick/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/U
+sers/Aymerick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
+cmr12.pfb><C:/Users/Aymerick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmr8.pfb><C:/Users/Aymerick/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Aymerick/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Aymerick/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:
+/Users/Aymerick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb
+8a.pfb><C:/Users/Aymerick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/hel
+vetic/uhvr8a.pfb>
+Output written on Rapport_final.pdf (3 pages, 820422 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
+ 162 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
