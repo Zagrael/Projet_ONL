@@ -21,7 +21,8 @@
 \tableofcontents
 \clearpage
 \section{Introduction}
-Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. L'objectif de ce projet est donc la résolution du problème suivant :\\
+Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. De plus, un bruit gaussien a été ajouté dans l'image.\\
+L'objectif de ce projet est donc la résolution du problème suivant :\\
 \[\underset{0 \leq x \leq 1}{\mathrm{min}} ||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2\]
 où :\\
 $A$ est la matrice de floutage\\
