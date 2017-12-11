@@ -7,32 +7,37 @@
 function x = deblurr(A,xtilde,lambda)
 
 n = length(xtilde);
-% !!! Write your code HERE to compute x !!!
+
 x(:,1) = xtilde;
-x(:,2) = zeros(n,1);
+x(:,2) = zeros(n,1); % Second vecteur pour comparer les itérations
 
-syms t;
 iter = 0; % Compteur d'itérations
-iterx = 0; % Compteur de variables
 
-while (abs(x(:,2) - x(:,1)) >= 1e-10*ones(n,1) & iter <= 30)
-    der = 0;
-    x(:,1) = x(:,2);
+Q = 2 * ((A' * A) + lambda * eye(n));
+c = -2 * (A' * xtilde);
+
+while (abs(x(:,1) - x(:,2)) > 0*1e-10*ones(n,1) & iter <= 30)
+    % On pose le vecteur de comparaison égal à la précédente itération
+    x(:,2) = x(:,1);
+    
+    % Visualisation de l'avancement
+    clc;
     iter = iter + 1;
+    disp('Nombre d''itérations : ');
+    disp(iter);
+    
     % Une itération de descente de coordonnée
-    for k = 1:n % pour chaque variable
-        clc;
-        iter
-        iterx = iterx + 1
-        for i = 1:n % pour chaque variable
-            if i ~= k
-                der = der + 2*A(i,:)*x(:,2) + 2*lambda*x(i,2);
-            else
-                der = der - 2*A(k,k)*x(k,2) + 2*A(i,i)*t + 2*lambda*t;
-            end
+    for i = 1:n % pour chaque variable
+        sum = 0;
+        for j = i:n
+            sum = sum + Q(i,j) * x(j,1);
         end
-        x(k,2) = solve(der,t);
+        disp((sum + c(i)) / Q(i,i));
+        pause;
+        x(i,1) = min(max(x(i,1) - (sum + c(i)) / Q(i,i), 0), 1);
     end
 end
-x = x(:,2);
+
+x = x(:,1);
+
 end
