@@ -33,7 +33,6 @@ while (abs(x(:,1) - x(:,2)) > 0*1e-10*ones(n,1) & iter <= 30)
             sum = sum + Q(i,j) * x(j,1);
         end
         disp((sum + c(i)) / Q(i,i));
-        pause;
         x(i,1) = min(max(x(i,1) - (sum + c(i)) / Q(i,i), 0), 1);
     end
 end
