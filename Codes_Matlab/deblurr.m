@@ -4,7 +4,11 @@
 % 
 % min_{0 <= x <= 1} ||A*xtilde - x||_2^2 + lambda ||x||_2^2
 
-function x = deblurr(A,xtilde,lambda)
+function x = deblurr(A,xtilde,lambda,maxIter)
+
+if ~exist('maxIter','var')
+    maxIter = 300;
+end
 
 n = length(xtilde);
 
@@ -16,7 +20,7 @@ iter = 0; % Compteur d'itérations
 Q = 2 * ((A' * A) + lambda * eye(n));
 c = -2 * (A' * xtilde);
 
-while (abs(x(:,1) - x(:,2)) > 0*1e-10*ones(n,1) & iter <= 30)
+while (norm(x(:,1) - x(:,2),'fro') > 1e-5 & iter <= maxIter)
     % On pose le vecteur de comparaison égal à la précédente itération
     x(:,2) = x(:,1);
     
@@ -28,15 +32,9 @@ while (abs(x(:,1) - x(:,2)) > 0*1e-10*ones(n,1) & iter <= 30)
     
     % Une itération de descente de coordonnée
     for i = 1:n % pour chaque variable
-        sum = 0;
-        for j = i:n
-            sum = sum + Q(i,j) * x(j,1);
-        end
-        disp((sum + c(i)) / Q(i,i));
+        sum = Q(i,:)*x(:,1);
         x(i,1) = min(max(x(i,1) - (sum + c(i)) / Q(i,i), 0), 1);
     end
 end
-
 x = x(:,1);
-
 end
