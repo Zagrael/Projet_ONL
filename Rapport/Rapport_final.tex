@@ -21,8 +21,7 @@
 \tableofcontents
 \clearpage
 \section{Introduction}
-Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. De plus, un bruit gaussien a été ajouté dans l'image.\\
-L'objectif de ce projet est donc la résolution du problème suivant :\\
+Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. L'objectif de ce projet est donc la résolution du problème suivant :\\
 \[\underset{0 \leq x \leq 1}{\mathrm{min}} ||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2\]
 où :\\
 $A$ est la matrice de floutage\\
@@ -33,7 +32,6 @@ $\lambda$ est un paramètre positif qui dépend du niveau de bruit\\
 \noindent
 Pour qu'un problème soit convexe, il faut que
 \begin{itemize}
-\item Le problème soit sous forme de minimisation,
 \item Son domaine $ D $ soit convexe,
 \item $\forall x,y \in D,\ \forall \lambda \in \left[0;1\right],\ f(\lambda x + (1 - \lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)$
 \end{itemize}
@@ -69,8 +67,17 @@ On conclut ainsi que le problème admet un minimum global.\\
 \section{Conditions d'optimalité}
 
 \section{Méthode de descente de coordonnées}
-
+La méthode de descente de coordonnées consiste à minimiser successivement chaque variable séparément en gardant les autres variables fixées.\\
+\\Pour cela, on choisit un point de départ, qui sera, dans le cadre de ce projet, l'image floutée.\\
+On calcule ensuite, pour chaque variable, la dérivée par rapport à celle-ci, que l'on égalise à zéro. La valeur obtenue remplacera la précédente pour les prochaines itérations. \\
+\\On effectue ces opérations jusqu'à obtenir une convergence des valeurs obtenues pour chaque variable, c'est à dire jusqu'à ce que l'écart entre les valeurs obtenues soit inférieur à une précison fixée.
 \section{Méthode du gradient}
+La méthode du gradient est similaire à la méthode de descente de coordonnées, en prenant comme direction de descente la direction de plus grande pente.\\
+Afin de s'assurer que l'objectif diminue, on détermine un pas optimal pour chaque itération.\\
+\\Une itération sera donnée par :
+\begin{center}
+$X_{k+1}=X_k - \alpha \nabla f(X_k)$
+\end{center}
 
 \section{Comparaison des méthodes}
 
