@@ -21,7 +21,8 @@
 \tableofcontents
 \clearpage
 \section{Introduction}
-Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. L'objectif de ce projet est donc la résolution du problème suivant :\\
+Le problème posé est de déflouter une image dont chaque pixel a été remplacé par une combinaison linéaire des pixels voisins. La matrice de floutage utilisée est donnée. De plus, un bruit gaussien a été ajouté dans l'image.\\
+L'objectif de ce projet est donc la résolution du problème suivant :\\
 \[\underset{0 \leq x \leq 1}{\mathrm{min}} ||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2\]
 où :\\
 $A$ est la matrice de floutage\\
@@ -32,6 +33,7 @@ $\lambda$ est un paramètre positif qui dépend du niveau de bruit\\
 \noindent
 Pour qu'un problème soit convexe, il faut que
 \begin{itemize}
+\item Le problème soit sous forme de minimisation,
 \item Son domaine $ D $ soit convexe,
 \item $\forall x,y \in D,\ \forall \lambda \in \left[0;1\right],\ f(\lambda x + (1 - \lambda)y) \leq \lambda f(x) + (1-\lambda)f(y)$
 \end{itemize}
