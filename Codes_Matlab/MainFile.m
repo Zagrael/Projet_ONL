@@ -2,14 +2,14 @@
 clear all; close all; clc; 
 
 % Load input data
-load Example0
+load Example1
 figure; 
 imshow( reshape(xtilde,l,L) ); 
 title('Image floutée et bruitée'); 
 
 % Choose parameter and solve problem
 lambda = 1e-6; 
-x = deblurr_grad(A,xtilde,lambda); % Un paramètre peut être ajouté pour modifier le nombre d'itérations
+x = deblurr(A,xtilde,lambda,30000); % Un paramètre peut être ajouté pour modifier le nombre d'itérations
 
 % Display solution
 figure; 

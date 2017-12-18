@@ -7,7 +7,7 @@
 function x = deblurr(A,xtilde,lambda,maxIter)
 
 if ~exist('maxIter','var')
-    maxIter = 300;
+    maxIter = 3000;
 end
 
 n = length(xtilde);
@@ -20,21 +20,20 @@ iter = 0; % Compteur d'itérations
 Q = 2 * ((A' * A) + lambda * eye(n));
 c = -2 * (A' * xtilde);
 
-while (norm(x(:,1) - x(:,2),'fro') > 1e-5 & iter <= maxIter)
+while (norm(x(:,1) - x(:,2),'fro') > 1e-5 && iter <= maxIter)
     % On pose le vecteur de comparaison égal à la précédente itération
     x(:,2) = x(:,1);
-    
-    % Visualisation de l'avancement
-    clc;
-    iter = iter + 1;
-    disp('Nombre d''itérations : ');
-    disp(iter);
     
     % Une itération de descente de coordonnée
     for i = 1:n % pour chaque variable
         sum = Q(i,:)*x(:,1);
         x(i,1) = min(max(x(i,1) - (sum + c(i)) / Q(i,i), 0), 1);
     end
+    
+    % Visualisation de l'avancement
+    clc;
+    iter = iter + 1;
+    disp(iter);
 end
 x = x(:,1);
 end
