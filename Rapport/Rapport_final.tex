@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{multirow}
 \umonsAuthor{Sabrine \textsc{Riahi}\\Aymerick \textsc{Soyez}}
 \usepackage[utf8]{inputenc}
 \umonsTitle{Optimisation Non Linéaire}
@@ -143,8 +144,62 @@ $X_{k+1}=X_k - \alpha \nabla f(X_k)$
 \end{center}
 
 \section{Comparaison des méthodes}
+Dans le tableau suivant reprenant l'ensemble des erreurs pour diverses valeurs de $\lambda$ (limité à 3000 itérations), on peut voir que la méthode du gradient est plus efficace pour l'Example1, tandis que la méthode de descente de coordonnées est plus efficace pour la première et la dernière image.
 
 \section{Étude de la sensibilité de la solution}
+Nous avons déflouté en boucle les différents exemples pour des valeurs de $\lambda$ différentes avec une limite de 3000 itérations. Le tableau suivant montre l'ensemble de nos résultats, pour les deux méthodes. \\
+
+Pour la première image, on voit que l'erreur diminue constamment avec $\lambda$, en se stabilisant petit à petit ($\lambda$ tend en fait vers 0). \\
+Pour la seconde image, l'erreur est minimale autour de $\lambda = 10^{-4}$ avec la méthode de descente de coordonnées, mais se stabilise après $\lambda = 5\cdot10^{-7}$ avec la méthode du gradient. \\
+L'erreur de la dernière image diminue également progressivement jusqu'à se stabiliser après $\lambda = 10^{-7}$.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{Méthode} & \multirow{2}{*}{$\lambda$} & \multicolumn{3}{|c|}{Erreur} \\\cline{3-5}
+ & & Example0 & Example1 & Example2 \\
+ \hline
+\multirow{18}{*}{Descente de coordonnées} & 1,00E-02 & 47,14617916 & 10,1647664 & 30,72163516 \\
+ & 5,00E-03 & 38,66568078 & 9,169684144 & 26,8902945 \\
+ & 1,00E-03 & 21,3446921 & 7,167769831 & 18,05490584 \\
+ & 5,00E-04 & 15,28981797 & 6,453585874 & 14,62302629 \\
+ & 1,00E-04 & 5,446041966 & 6,048189766 & 7,727587915 \\
+ & 5,00E-05 & 3,155836022 & 6,416526121 & 5,293370035 \\
+ & 1,00E-05 & 1,250600831 & 9,522410563 & 1,868970892 \\
+ & 5,00E-06 & 1,058235509 & 10,95138518 & 1,375975318 \\
+ & 1,00E-06 & 0,934905051 & 12,60119727 & 1,050864016 \\
+ & 5,00E-07 & 0,921463922 & 12,84824921 & 1,017104882 \\
+ & 1,00E-07 & 0,911350647 & 13,04974679 & 0,990150346 \\
+ & 5,00E-08 & 0,910149684 & 13,07534406 & 0,98675349 \\
+ & 1,00E-08 & 0,909188837 & 13,09592037 & 0,984038304 \\
+ & 5,00E-09 & 0,90907554 & 13,09849993 & 0,983700172 \\
+ & 1,00E-09 & 0,908979452 & 13,10056444 & 0,983429913 \\
+ & 5,00E-10 & 0,908967441 & 13,10082255 & 0,98339619 \\
+ & 1,00E-10 & 0,908957833 & 13,10102905 & 0,98336921 \\
+ & 5,00E-11 & 0,908956632 & 13,10105487 & 0,983365838 \\
+\hline
+\multirow{18}{*}{Gradient} & 1,00E-02 & 47,14785368 & 10,1657138 & 30,72596525 \\
+ & 5,00E-03 & 38,66362675 & 9,169837985 & 26,89259855 \\
+ & 1,00E-03 & 21,341731 & 7,163593487 & 18,05553437 \\
+ & 5,00E-04 & 15,29204685 & 6,476905571 & 14,63874942 \\
+ & 1,00E-04 & 5,835811798 & 5,465286598 & 8,818225907 \\
+ & 5,00E-05 & 3,909591126 & 5,340744131 & 7,547420843 \\
+ & 1,00E-05 & 2,24333251 & 5,2763741 & 6,386730072 \\
+ & 5,00E-06 & 2,026906195 & 5,272683027 & 6,234823196 \\
+ & 1,00E-06 & 1,84494184 & 5,271115461 & 6,11199903 \\
+ & 5,00E-07 & 1,821932862 & 5,271049484 & 6,096575705 \\
+ & 1,00E-07 & 1,803569205 & 5,271017599 & 6,084220985 \\
+ & 5,00E-08 & 1,801278858 & 5,271013461 & 6,082674497 \\
+ & 1,00E-08 & 1,799434918 & 5,271010282 & 6,08143701 \\
+ & 5,00E-09 & 1,799204933 & 5,271009887 & 6,081282306 \\
+ & 1,00E-09 & 1,799020708 & 5,271009571 & 6,081158539 \\
+ & 5,00E-10 & 1,798997653 & 5,271009531 & 6,081143068 \\
+ & 1,00E-10 & 1,798979228 & 5,271009499 & 6,081130692 \\
+ & 5,00E-11 & 1,798976924 & 5,271009495 & 6,081129144 \\
+\hline
+
+\end{tabular}
+\end{center}
 
 
 \end{document}
