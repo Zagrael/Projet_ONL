@@ -26,10 +26,12 @@ while (norm(x(:,1) - x(:,2),'fro') > 1e-5 && iter <= maxIter)
     
     % Une itération de descente de coordonnée
     for i = 1:n % pour chaque variable
-        sum = Q(i,:)*x(:,1);
-        x(i,1) = min(max(x(i,1) - (sum + c(i)) / Q(i,i), 0), 1);
+        
+        gfi = Q(i,:)*x(:,1) + c(i);
+        
+        x(i,1) = min(max(x(i,1) - gfi / Q(i,i), 0), 1);
+        
     end
-    
     % Visualisation de l'avancement
     clc;
     iter = iter + 1;

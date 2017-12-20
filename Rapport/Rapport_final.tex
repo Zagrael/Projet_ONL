@@ -72,7 +72,68 @@ On conclut ainsi que le problème admet un minimum global.\\
 La méthode de descente de coordonnées consiste à minimiser successivement chaque variable séparément en gardant les autres variables fixées.\\
 \\Pour cela, on choisit un point de départ, qui sera, dans le cadre de ce projet, l'image floutée.\\
 On calcule ensuite, pour chaque variable, la dérivée par rapport à celle-ci, que l'on égalise à zéro. La valeur obtenue remplacera la précédente pour les prochaines itérations. \\
-\\On effectue ces opérations jusqu'à obtenir une convergence des valeurs obtenues pour chaque variable, c'est à dire jusqu'à ce que l'écart entre les valeurs obtenues soit inférieur à une précison fixée.
+\\On effectue ces opérations jusqu'à obtenir une convergence des valeurs obtenues pour chaque variable, c'est à dire jusqu'à ce que l'écart entre les valeurs obtenues soit inférieur à une précision fixée. \\
+
+La fonction que nous devons minimiser est quadratique. Mettons-là sous la forme \[f(x) = \dfrac{1}{2}x^TQx + c^Tx + b\]
+
+\begin{tabular}{rcl}
+$||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2$ & = & $(Ax - \tilde{x})^T(Ax - \tilde{x}) + \lambda x^Tx$ \\
+ & = & $(Ax)^T(Ax) - \tilde{x}^T(Ax) - (Ax)^T\tilde{x} + \tilde{x}^T\tilde{x} + \lambda x^Tx$ \\
+ & = & $x^TA^TAx - 2\tilde{x}^TAx + \tilde{x}^T\tilde{x} + x^T(\lambda I)x$ \\
+ & = & $x^T(A^TA + \lambda I)x - 2 \tilde{x}^TAx + \tilde{x}^T\tilde{x}$ \\
+\end{tabular}
+\newline
+\newline
+
+On retrouve bien la forme ci-dessus, avec
+$\left\{\begin{array}{rcl}
+Q & = & 2(A^TA + \lambda I) \\
+c & = & -2A^T\tilde{x} \\
+b & = & \tilde{x}^T\tilde{x} \\
+\end{array}\right.$
+
+Pour calculer la formule de l'actualisation d'une variable, considérons une fonction quadratique en 3 dimensions : \\
+\[f(x_1,x_2,x_3) = \dfrac{1}{2}
+\left(\begin{array}{ccc}
+x_1 & x_2 & x_3
+\end{array}\right)
+\left(\begin{array}{ccc}
+q_{11} & q_{12} & q_{13} \\
+q_{21} & q_{22} & q_{23} \\
+q_{31} & q_{32} & q_{33}
+\end{array}\right)
+\left(\begin{array}{c}
+x_1 \\
+x_2 \\
+x_3
+\end{array}\right)
++ \left(\begin{array}{ccc}
+c_1 & c_2 & c_3
+\end{array}\right)
+\left(\begin{array}{c}
+x_1 \\
+x_2 \\
+x_3
+\end{array}\right)\]
+
+Si on veut actualiser $x_2$, on calcule la dérivée de $f$ en cette variable :
+\[\dfrac{\delta f(x_1,x_2,x_3)}{\delta x_2} = q_{21}x_1 + q_{22}x_2 + q_{23}x_3 + c_2\]
+La nouvelle valeur de $x_2$ est donc donnée par :
+\(x_2 = \dfrac{-(q_{21}x_1 + q_{23}x_3 + c_2)}{q_{22}}\) \\
+Pour une fonction à $n$ dimensions, en la variable $x_i$ :\\
+\begin{center}
+\begin{tabular}{rcl}
+$x_i$ & = & $\dfrac{-\left(\sum\limits_{\underset{j \neq i}{j = 1}}^n q_{ij}x_j + c_i\right)}{q_{ii}}$ \\
+ & = & $x_i - \dfrac{\sum\limits_{j = 1}^nq_{ij}x_j + c_i}{q_{ii}}$ \\
+ & = & $x_i - \dfrac{\left[\nabla f\right]_i}{q_{ii}}$ \\
+\end{tabular}
+\end{center}
+
+Pour respecter la contrainte $0 \leq x \leq 1$, il suffit d'utiliser \(\text{min}(\text{max}(..., 0), 1)\), où "..." est la formule d'actualisation ci-dessus. \\
+
+Nous avons également utilisé un test d'arrêt qui prend en compte la norme de l'écart entre les deux dernières itérations ainsi que le nombre d'itérations. \\
+L'implémentation sous Matlab se trouve en annexes.
+
 \section{Méthode du gradient}
 La méthode du gradient est similaire à la méthode de descente de coordonnées, en prenant comme direction de descente la direction de plus grande pente.\\
 Afin de s'assurer que l'objectif diminue, on détermine un pas optimal pour chaque itération.\\
