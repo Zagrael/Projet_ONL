@@ -1,6 +1,7 @@
 \documentclass[12pt, a4paper]{report}
 \renewcommand{\thesection}{\arabic{section}}
 \renewcommand{\thesubsection}{\arabic{subsection}}
+\newcommand{\Lagr}{\mathcal{L}}
 \usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{graphicx}
 \usepackage[french]{babel}
@@ -68,6 +69,63 @@ Le problème étant convexe, tout minimum local est global.\\
 On conclut ainsi que le problème admet un minimum global.\\
 
 \section{Conditions d'optimalité}
+\subsection*{Conditions d'optimalité de Karush-Kuhn-Tucker}
+
+Si $x^*$ est une solution optimale locale telle que l'ensemble des gradients des contraintes actives est linéairement indépendant, alors il existe un vecteur de multiplicateurs de Lagrange $\alpha^*$
+tel que :
+\begin{center}
+$\begin{array}{rcl}
+\nabla_x \Lagr(x^*,\alpha^*)  & = & 0 \\
+\alpha^*_i & \geq & 0 \\
+\alpha^*_i c_i (x^*) & = & 0 \\
+\end{array}$
+\end{center}
+Nous disposons du problème de minimisation suivant : \\
+\[\underset{0 \leq x \leq 1}{\mathrm{min}} ||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2\]\\
+En reformulant les contraintes comme suit : 
+\begin{center}
+$\left\{\begin{array}{rcl}
+x_i & \geq & 0 \\
+-x_i + 1 & \geq & 0 \\
+\end{array}\right.$
+\end{center}
+Et en tenant compte de la définition de la fonction Lagrangienne :
+\begin{center}
+$\Lagr(x,\alpha) = f(x) - \sum \alpha_i c_i(x)$ 
+\end{center}
+On obtient le Lagrangien de notre problème d'optimisation : 
+\begin{center}
+$\Lagr(x_i, \alpha_i) = ||Ax_i - \tilde{x_i}||_2^2  +  \lambda_i ||x_i||_2^2 - \sum \alpha_i x_i - \sum \alpha_i (- x_i + 1)$
+\end{center}
+En tenant compte des conditions KKT, nous avons finalement : 
+
+\begin{center}
+$\begin{array}{rclcrll}
+\nabla_x \Lagr(x_i, \alpha_i) & = & 0 & \Leftrightarrow & \nabla(||Ax_i - \tilde{x_i}||_2^2  +  \lambda_i ||x_i||_2^2 - \sum \alpha_i x_i - \sum \alpha_i (- x_i + 1)) & = & 0\\
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{rclcrll}
+\alpha_i & \geq & 0 & \Leftrightarrow & \alpha_i & \geq & 0 \\
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{rclcrll}
+\alpha_i c_i(x_i) & = & 0 & \Leftrightarrow & \left\{\begin{array}{l} \alpha_i x_i \\ \alpha_i(- x_i +1)\end{array}\right. & \begin{array}{c} = \\ = \end{array} & \begin{array}{l} 0 \\ 0 \end{array}\\
+\end{array}$
+\end{center}
+
+\begin{center}
+$\begin{array}{rcl}
+x_i & \geq & 0 \\
+-x_i + 1 & \geq & 0 \\
+\end{array}$
+\end{center}
+\noindent
+Pour que les conditions d'optimalité de KKT soient nécessaires et suffisantes, il faut que le problème soit convexe, et qu'il admette un point de Slater.\\
+Il a été démontré plus haut que le problème étudié est convexe. Etant donné qu'il nous est également possible de trouver une point de Slater respactant les contraintes du problème, les conditions d'optimaité de KKT sont donc nécessaires et suffisantes.
 
 \section{Méthode de descente de coordonnées}
 La méthode de descente de coordonnées consiste à minimiser la fonction successivement sur chaque variable séparément en gardant les autres variables fixées.\\
@@ -139,9 +197,37 @@ La méthode du gradient est similaire à la méthode de descente de coordonnées
 Afin de s'assurer que l'objectif diminue, on détermine un pas optimal pour chaque itération.\\
 \\Une itération sera donnée par :
 \begin{center}
-$X_{k+1}=X_k - \alpha \nabla f(X_k)$
+$X_{k+1}=X_k - \alpha \nabla f(X_k)$ (1)
 \end{center}
-
+Pour résoudre le problème, nous le reformulerons sous la forme quadratique, tout comme pour la méthode du gradient, ce qui nous donnera également :
+\begin{center}
+$f(x) = \dfrac{1}{2}x^TQx + c^Tx + b$ (2)
+\end{center}
+Avec :
+\begin{flushleft}
+$\begin{array}{rcl}
+Q & = & 2(A^TA + \lambda I) \\
+c & = & -2A^T\tilde{x} \\
+b & = & \tilde{x}^T\tilde{x} \\
+\end{array}$
+\end{flushleft}
+Le gradient de la fonction est donc égal à :\\
+\begin{center}
+$\nabla f(x) = Qx + c$ (3)
+\end{center}
+En considérant les équations (1), (2) et (3), et en posant$\nabla f(X_k)) = g$ , nous pouvons déterminer le pas optimal $\alpha$ pour chaque itération :
+\begin{flushleft}
+$\begin{array}{rl}
+\nabla f(X_{k+1}) & = Q X_{k+1} + c\\
+\\& = Q (X_k - \alpha g) + c\\
+\\& = Q X_k - \alpha Q g + c\\
+\\& = Q X_k g - \alpha g^TQ g + c g
+\end{array}$
+\end{flushleft}
+En prenant $\nabla f(X_{k+1}) = 0$, on obtient :\\
+\\$Q X_k g - \alpha g^TQ g + c g = 0$\\
+\\$\alpha = \dfrac{c g + Q X_k g}{g^TQ g} = \dfrac{g(c + Q X_k)}{g^TQ g} = \dfrac{g^T g}{g^TQ g}$\\
+\\L'implémentation sous Matlab se trouve en annexe.
 \section{Comparaison des méthodes}
 Dans le tableau suivant reprenant l'ensemble des erreurs pour diverses valeurs de $\lambda$ (limité à 3000 itérations), on peut voir que la méthode du gradient est plus efficace pour l'Example1, tandis que la méthode de descente de coordonnées est plus efficace pour la première et la dernière image. \\
 
