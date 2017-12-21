@@ -33,9 +33,9 @@ while (norm(x(:,1) - x(:,2),'fro') > 1e-5 && iter <= maxIter)
         
     end
     % Visualisation de l'avancement
-    clc;
+    %clc;
     iter = iter + 1;
-    disp(iter);
+    %disp(iter);
 end
 x = x(:,1);
 end

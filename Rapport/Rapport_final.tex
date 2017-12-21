@@ -70,12 +70,11 @@ On conclut ainsi que le problème admet un minimum global.\\
 \section{Conditions d'optimalité}
 
 \section{Méthode de descente de coordonnées}
-La méthode de descente de coordonnées consiste à minimiser successivement chaque variable séparément en gardant les autres variables fixées.\\
+La méthode de descente de coordonnées consiste à minimiser la fonction successivement sur chaque variable séparément en gardant les autres variables fixées.\\
 \\Pour cela, on choisit un point de départ, qui sera, dans le cadre de ce projet, l'image floutée.\\
 On calcule ensuite, pour chaque variable, la dérivée par rapport à celle-ci, que l'on égalise à zéro. La valeur obtenue remplacera la précédente pour les prochaines itérations. \\
-\\On effectue ces opérations jusqu'à obtenir une convergence des valeurs obtenues pour chaque variable, c'est à dire jusqu'à ce que l'écart entre les valeurs obtenues soit inférieur à une précision fixée. \\
-
-La fonction que nous devons minimiser est quadratique. Mettons-là sous la forme \[f(x) = \dfrac{1}{2}x^TQx + c^Tx + b\]
+\\On effectue ces opérations jusqu'à obtenir une convergence des valeurs obtenues pour chaque variable, c'est à dire jusqu'à ce que l'écart entre deux itérations soit inférieur à une précision fixée. \\
+\\La fonction que nous devons minimiser est quadratique. Mettons-là sous la forme \[f(x) = \dfrac{1}{2}x^TQx + c^Tx + b\]
 
 \begin{tabular}{rcl}
 $||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2$ & = & $(Ax - \tilde{x})^T(Ax - \tilde{x}) + \lambda x^Tx$ \\
@@ -85,14 +84,14 @@ $||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2$ & = & $(Ax - \tilde{x})^T(Ax - \tild
 \end{tabular}
 \newline
 \newline
-
+\\
 On retrouve bien la forme ci-dessus, avec
 $\left\{\begin{array}{rcl}
 Q & = & 2(A^TA + \lambda I) \\
 c & = & -2A^T\tilde{x} \\
 b & = & \tilde{x}^T\tilde{x} \\
 \end{array}\right.$
-
+\\
 Pour calculer la formule de l'actualisation d'une variable, considérons une fonction quadratique en 3 dimensions : \\
 \[f(x_1,x_2,x_3) = \dfrac{1}{2}
 \left(\begin{array}{ccc}
@@ -144,7 +143,9 @@ $X_{k+1}=X_k - \alpha \nabla f(X_k)$
 \end{center}
 
 \section{Comparaison des méthodes}
-Dans le tableau suivant reprenant l'ensemble des erreurs pour diverses valeurs de $\lambda$ (limité à 3000 itérations), on peut voir que la méthode du gradient est plus efficace pour l'Example1, tandis que la méthode de descente de coordonnées est plus efficace pour la première et la dernière image.
+Dans le tableau suivant reprenant l'ensemble des erreurs pour diverses valeurs de $\lambda$ (limité à 3000 itérations), on peut voir que la méthode du gradient est plus efficace pour l'Example1, tandis que la méthode de descente de coordonnées est plus efficace pour la première et la dernière image. \\
+
+%La méthode de descente de coordonnées est en générale plus efficace (converge plus rapidement) pour des fonctions dont on peut séparer les différentes variables : $f(x_1,x_2) = g(x_1) + h(x_2)$, ce qui est le cas d'une fonction quadratique.
 
 \section{Étude de la sensibilité de la solution}
 Nous avons déflouté en boucle les différents exemples pour des valeurs de $\lambda$ différentes avec une limite de 3000 itérations. Le tableau suivant montre l'ensemble de nos résultats, pour les deux méthodes. \\
