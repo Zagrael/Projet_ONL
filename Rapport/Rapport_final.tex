@@ -238,6 +238,25 @@ L'implémentation sous Matlab se trouve en annexe.
 \section{Comparaison des méthodes}
 Dans le tableau suivant reprenant l'ensemble des erreurs pour diverses valeurs de $\lambda$ (limité à 3000 itérations), on peut voir que la méthode du gradient est plus efficace pour l'Example1, tandis que la méthode de descente de coordonnées est plus efficace pour la première et la dernière image. \\
 
+Nous avons également observé les différences au niveau du temps de calcul et du nombre d'itérations pour chaque méthode : (limité à 100 000 itérations, sauf la nuit) \\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Méthode & Example & Nombre d'itérations & Temps de calcul & Erreur \\
+\hline
+\multirow{3}{*}{Gradient} & 0 & 1 000 000 & 20m & 0.93 \% \\
+ & 1 & 100 000 & 45m & 11.80 \% \\
+ & 2 & 212 924 & ? & 1.05 \% \\
+\hline
+\multirow{3}{*}{Descente de coordonnées} & 0 & 1 159 & < 1m & 0.93 \% \\
+ & 1 & 44 314 & 4h & 14.00 \% \\
+ & 2 & 2 900 & 20m & 1.05 \% \\
+\hline
+\end{tabular}
+\end{center}
+
+La méthode de descente de coordonnées nécessite moins d'itérations, mais il faut plus de temps pour les exécuter. \\
+
 %La méthode de descente de coordonnées est en générale plus efficace (converge plus rapidement) pour des fonctions dont on peut séparer les différentes variables : $f(x_1,x_2) = g(x_1) + h(x_2)$, ce qui est le cas d'une fonction quadratique.
 
 \section{Étude de la sensibilité de la solution}

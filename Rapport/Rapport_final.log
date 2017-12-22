@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.22)  22 DEC 2017 09:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2017.11.22)  22 DEC 2017 11:16
 entering extended mode
 **./Rapport_final.tex
 (Rapport_final.tex
@@ -932,7 +932,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--240
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 241--242
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--259
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
 
  []
 
@@ -945,7 +955,7 @@ LaTeX Font Warning: Size substitutions with differences
 Here is how much of TeX's memory you used:
  5431 strings out of 493312
  77918 string characters out of 3128521
- 161550 words of memory out of 3000000
+ 164550 words of memory out of 3000000
  8839 multiletter control sequences out of 15000+200000
  37792 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -972,9 +982,9 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/Aymerick/AppData/Local
 k/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Use
 rs/Aymerick/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.p
 fb>
-Output written on Rapport_final.pdf (8 pages, 886704 bytes).
+Output written on Rapport_final.pdf (8 pages, 888452 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
+ 251 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
