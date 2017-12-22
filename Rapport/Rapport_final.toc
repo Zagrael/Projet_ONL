@@ -7,3 +7,4 @@
 \contentsline {section}{\numberline {6}M\IeC {\'e}thode du gradient}{5}
 \contentsline {section}{\numberline {7}Comparaison des m\IeC {\'e}thodes}{6}
 \contentsline {section}{\numberline {8}\IeC {\'E}tude de la sensibilit\IeC {\'e} de la solution}{6}
+\contentsline {section}{\numberline {9}Conclusion}{7}
