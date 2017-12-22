@@ -10,7 +10,7 @@ title('Image floutée et bruitée');
 %%
 % Choose parameter and solve problem
 lambda = 1e-6; 
-x = deblurr(A,xtilde,lambda,100000); % Un paramètre peut être ajouté pour modifier le nombre d'itérations
+x = deblurr(A,xtilde,lambda); % Un paramètre peut être ajouté pour modifier le nombre d'itérations
 
 %%
 % % Pour le tableau de l'erreur en fonction de lambda
