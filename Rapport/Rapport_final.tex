@@ -125,14 +125,14 @@ x_i & \geq & 0 \\
 \end{center}
 \noindent
 Pour que les conditions d'optimalité de KKT soient nécessaires et suffisantes, il faut que le problème soit convexe, et qu'il admette un point de Slater.\\
-Il a été démontré plus haut que le problème étudié est convexe. Étant donné qu'il nous est également possible de trouver une point de Slater respectant les contraintes du problème, les conditions d'optimalité de KKT sont donc nécessaires et suffisantes.
+Il a été démontré plus haut que le problème étudié est convexe. Étant donné qu'il nous est également possible de trouver un point de Slater respectant les contraintes du problème, les conditions d'optimalité de KKT sont donc nécessaires et suffisantes.
  
 \section{Méthode de descente de coordonnées}
 La méthode de descente de coordonnées consiste à minimiser la fonction successivement sur chaque variable séparément en gardant les autres variables fixées.\\
 \\Pour cela, on choisit un point de départ, qui sera, dans le cadre de ce projet, l'image floutée.\\
 On calcule ensuite, pour chaque variable, la dérivée par rapport à celle-ci, que l'on égalise à zéro. La valeur obtenue remplacera la précédente pour les prochaines itérations. \\
 \\On effectue ces opérations jusqu'à obtenir une convergence des valeurs obtenues pour chaque variable, c'est à dire jusqu'à ce que l'écart entre deux itérations soit inférieur à une précision fixée. \\
-\\La fonction que nous devons minimiser est quadratique. Mettons-là sous la forme \[f(x) = \dfrac{1}{2}x^TQx + c^Tx + b\]
+\\La fonction que nous devons minimiser est quadratique. Mettons-la sous la forme \[f(x) = \dfrac{1}{2}x^TQx + c^Tx + b\]
 
 \begin{tabular}{rcl}
 $||Ax - \tilde{x}||_2^2 + \lambda||x||_2^2$ & = & $(Ax - \tilde{x})^T(Ax - \tilde{x}) + \lambda x^Tx$ \\
@@ -149,8 +149,9 @@ Q & = & 2(A^TA + \lambda I) \\
 c & = & -2A^T\tilde{x} \\
 b & = & \tilde{x}^T\tilde{x} \\
 \end{array}\right.$
-\\
-Pour calculer la formule de l'actualisation d'une variable, considérons une fonction quadratique en 3 dimensions : \\
+\bigbreak
+\noindent
+Pour calculer la formule de l'actualisation d'une variable, considérons une fonction quadratique en 3 dimensions : 
 \[f(x_1,x_2,x_3) = \dfrac{1}{2}
 \left(\begin{array}{ccc}
 x_1 & x_2 & x_3
@@ -173,7 +174,7 @@ x_1 \\
 x_2 \\
 x_3
 \end{array}\right)\]
-
+\noindent
 Si on veut actualiser $x_2$, on calcule la dérivée de $f$ en cette variable :
 \[\dfrac{\delta f(x_1,x_2,x_3)}{\delta x_2} = q_{21}x_1 + q_{22}x_2 + q_{23}x_3 + c_2\]
 La nouvelle valeur de $x_2$ est donc donnée par :
@@ -215,7 +216,11 @@ Le gradient de la fonction est donc égal à :
 \begin{center}
 $\nabla f(x) = Qx + c$ (3)
 \end{center}
-En considérant les équations (1), (2) et (3), et en posant$\nabla f(X_k)) = g$ , nous pouvons déterminer le pas optimal $\alpha$ pour chaque itération :
+Déterminer un pas optimal $\alpha$ pour obtenir une itération $k + 1$ revient donc à résoudre l'équation :
+\begin{center}
+$\dfrac{\partial f(X_{k+1})}{\partial \alpha} = 0$
+\end{center}
+En considérant les équations (1), (2) et (3), et en posant$\nabla f(X_k) = g$ , nous pouvons déterminer le pas optimal $\alpha$ pour chaque itération :
 \begin{center}
 $\begin{array}{rl}
 f(X_{k+1}) & = \dfrac{1}{2}X_{k+1}^TQX_{k+1} + c^TX_{k+1} + b\\
